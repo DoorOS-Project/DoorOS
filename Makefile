@@ -1,28 +1,36 @@
-# Variables
-CC = g++
-CFLAGS = -Wall -std=c++17
-LDFLAGS = -lSDL2
-SRC = $(wildcard *.cpp) # Liste tous les fichiers .cpp du répertoire courant
-OBJ = $(SRC:.cpp=.o) # Remplace l'extension .cpp par .o
-EXE = DoorOS.bin # Nom du fichier exécutable
+CC = cl
+COMMONFLAGS = -nologo
+CXXFLAGS = -MD -c
+INCLUDES = -Iinclude
+LDFLAGS = -incremental:no -manifest:no OpenGl32.lib glew32.lib SDL2.lib SDL2main.lib -SUBSYSTEM:CONSOLE
+BUILDDIR=build
 
-# Règle principale
-all: $(EXE)
+BOOTDIR=boot
+KERNELDIR=kernel
+DRIVERSDIR=drivers
+GUIDIR=gui
+APPDIR=apps
 
-# Règle pour générer l'exécutable
+BOOTSRC=$(BOOTDIR)\boot.asm
+KERNELSRC=$(KERNELDIR)\kernel.c
+DRIVERSSRC=$(DRIVERSDIR)\keyboard.c $(DRIVERSDIR)\screen.c
+GUISRC=$(GUIDIR)\gui.c $(GUIDIR)\window.c
+APPSRC=$(APPDIR)\calculator.c $(APPDIR)\editor.c
+
+SRC=$(BOOTSRC) $(KERNELSRC) $(DRIVERSSRC) $(GUISRC) $(APPSRC)
+
+OBJ=$(SRC:.c=.obj)
+EXE=prac1.exe
+TARGETPATH=$(BUILDDIR)\$(EXE)
+
+all: $(OBJ) $(EXE)
+
 $(EXE): $(OBJ)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(OBJ) -Fe$(TARGETPATH) $(COMMONFLAGS) -link $(LDFLAGS)
 
-# Règle d'inférence pour compiler les fichiers .cpp en .o
-.cpp.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+.c.obj:
+	$(CC) $(INCLUDES) $(CXXFLAGS) $< -Fo$@ $(COMMONFLAGS)
 
-# Règle pour nettoyer les fichiers intermédiaires
 clean:
-	rm -f $(OBJ)
-
-# Règle pour nettoyer tous les fichiers générés
-mrproper: clean
-	rm -f $(EXE)
-
-
+	del /f /q $(TARGETPATH)
+	del /f /q $(OBJ)
