@@ -2,14 +2,16 @@
 
 ## Project Tree
 
-This is the proect tree in code-block syntax :  
+This is the project tree in code-block syntax :  
 ```
 DoorOS/
 ├── README.md
 ├── LICENSE
 ├── Makefile
+├── docs/
+│   └── DOCS.md
 ├── boot/
-│   ├── boot.asm
+│   └── boot.asm
 ├── kernel/
 │   ├── kernel.c
 │   └── kernel.h
@@ -43,6 +45,8 @@ And in list syntax :
 	* Makefile
 	* boot/
 		* boot.asm
+	* docs/
+		* DOCS.md
 	* kernel/
 		* kernel.c
 		* kernel.h
