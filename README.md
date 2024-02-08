@@ -9,52 +9,63 @@ DoorOS/
 ├── LICENSE
 ├── Makefile
 ├── docs/
-│   └── DOCS.md
+│   ├── DOCS.md
+│   └── BUILD.md
 ├── boot/
-│   └── boot.asm
+│   ├── boot.asm
+│   └── README.md
 ├── kernel/
 │   ├── kernel.c
-│   └── kernel.h
+│   ├── kernel.h
+│   └── README.md
 ├── drivers/
 │   ├── keyboard.c
 │   ├── keyboard.h
 │   ├── screen.c
-│   └── screen.h
+│   ├── screen.h
+│   └── README.md
 ├── gui/
 │   ├── gui.c
 │   ├── gui.h
 │   ├── window.c
 │   ├── window.h
-│   └── assets/
-│       ├── logo.png
-│       ├── font.ttf
-│       └── icons/
-│           ├── home.png
-│           ├── settings.png
-│           └── power.png
+│   ├── assets/
+│   │   ├── logo.png
+│   │   ├── font.ttf
+│   │   └── icons/
+│   │       ├── home.png
+│   │       ├── settings.png
+│   │       └── power.png
+│   │       └── README.md
+│   └── README.md
 └── apps/
-	├── calculator.c
-	├── calculator.h
-	├── editor.c
-	└── editor.h
+    ├── calculator.c
+    ├── calculator.h
+    ├── editor.c
+    ├── editor.h
+    └── README.md
 ```
 And in list syntax :  
 * DoorOS/
 	* README.md
 	* LICENSE
 	* Makefile
-	* boot/
-		* boot.asm
 	* docs/
 		* DOCS.md
+		* BUILD.md
+	* boot/
+		* boot.asm
+		* README.md
 	* kernel/
 		* kernel.c
 		* kernel.h
+		* README.md
 	* drivers/
 		* keyboard.c
 		* keyboard.h
 		* screen.c
 		* screen.h
+		* README.md
 	* gui/
 		* gui.c
 		* gui.h
@@ -67,8 +78,16 @@ And in list syntax :
 				* home.png
 				* settings.png
 				* power.png
+				* README.md
+			* README.md
+		* README.md
 	* apps/
 		* calculator.c
 		* calculator.h
 		* editor.c
 		* editor.h
+		* README.md
+
+
+## Build
+See [`BUILD.md`](./BUILD.md) for build instruction.
