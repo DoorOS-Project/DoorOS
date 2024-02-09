@@ -13,6 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Install NASM
+      run: sudo apt-get install nasm
+    
+    - name: Install GCC
+      run: sudo apt-get install gcc
   
     - name: Build
       run: make
