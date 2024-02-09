@@ -1,36 +1,29 @@
-CC = cl
-COMMONFLAGS = -nologo
-CXXFLAGS = -MD -c
-INCLUDES = -Iinclude
-LDFLAGS = -incremental:no -manifest:no OpenGl32.lib glew32.lib SDL2.lib SDL2main.lib -SUBSYSTEM:CONSOLE
-BUILDDIR=build
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -std=c99
+NASM = nasm
+NASMFLAGS = -f bin
+LD = ld
+LDFLAGS = -m elf_i386 -Ttext 0x1000 --oformat binary
 
-BOOTDIR=boot
-KERNELDIR=kernel
-DRIVERSDIR=drivers
-GUIDIR=gui
-APPDIR=apps
+all: boot.bin kernel.bin
 
-BOOTSRC=$(BOOTDIR)\boot.asm
-KERNELSRC=$(KERNELDIR)\kernel.c
-DRIVERSSRC=$(DRIVERSDIR)\keyboard.c $(DRIVERSDIR)\screen.c
-GUISRC=$(GUIDIR)\gui.c $(GUIDIR)\window.c
-APPSRC=$(APPDIR)\calculator.c $(APPDIR)\editor.c
+boot.bin: boot/boot.asm
+	$(NASM) $(NASMFLAGS) $< -o $@
 
-SRC=$(BOOTSRC) $(KERNELSRC) $(DRIVERSSRC) $(GUISRC) $(APPSRC)
+kernel.bin: kernel/kernel.o drivers/keyboard.o drivers/screen.o gui/gui.o gui/window.o apps/calculator.o apps/editor.o
+	$(LD) $(LDFLAGS) $^ -o $@
 
-OBJ=$(SRC:.c=.obj)
-EXE=prac1.exe
-TARGETPATH=$(BUILDDIR)\$(EXE)
-
-all: $(OBJ) $(EXE)
-
-$(EXE): $(OBJ)
-	$(CC) $(OBJ) -Fe$(TARGETPATH) $(COMMONFLAGS) -link $(LDFLAGS)
-
-.c.obj:
-	$(CC) $(INCLUDES) $(CXXFLAGS) $< -Fo$@ $(COMMONFLAGS)
+%.o: %.c %.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	del /f /q $(TARGETPATH)
-	del /f /q $(OBJ)
+	rm -f *.bin *.o
+	rm -f boot/*.bin boot/*.o
+	rm -f kernel/*.bin kernel/*.o
+	rm -f drivers/*.bin drivers/*.o
+	rm -f gui/*.bin gui/*.o
+	rm -f apps/*.bin apps/*.o
+
+run: all
+	qemu-system-i386 -drive format=raw,file=boot.bin,index=0,if=floppy
+	qemu-system-i386 -drive format=raw,file=kernel.bin,index=1,if=floppy
