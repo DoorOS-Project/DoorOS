@@ -1,4 +1,4 @@
-name: Makefile CI
+name: Build
 
 on:
   push:
@@ -13,11 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: configure
-      run: ./configure
-
-    - name: Install dependencies
+  
+    - name: Build
       run: make
 
     - name: Run check
