@@ -18,7 +18,7 @@ jobs:
       run: sudo apt-get install nasm
     
     - name: Install GCC
-      run: sudo apt-get install gcc
+      run: sudo apt-get install gcc && sudo apt-get install gcc-multilib
   
     - name: Build
       run: make
