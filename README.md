@@ -90,4 +90,4 @@ And in list syntax :
 
 
 ## Build
-See [`BUILD.md`](./BUILD.md) for build instruction.
+See [`BUILD.md`](./Docs/BUILD.md) for build instruction.
