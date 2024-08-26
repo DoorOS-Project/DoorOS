@@ -1,69 +1,56 @@
-# DoorOS
+# DoorOS Open-source Project
 
-DoorOS is an open-source project that aims to create a free, open-source GUI OS and a Windows alternative. It is written in C and assembly and uses a custom bootloader and kernel.
+Welcome to the DoorOS Open-source project! DoorOS is a free and open-source graphical user interface (GUI) operating system, serving as a powerful and versatile alternative to Windows. Written in C/C++, DoorOS is designed to cater to a broad audience, from everyday users to enterprises requiring a robust and customizable OS solution.
 
 ## Features
 
-- Custom bootloader and kernel
-- 32-bit support only (probably also 64-bit support in the future)
-- Keyboard and screen drivers
-- GUI with window management and icons
-- Basic applications (calculator, editor)
-- Makefile for easy compilation
+- **32/64-bit Support**: Compatible with both 32-bit and 64-bit architectures, ensuring a wide range of device compatibility.
+- **GUI Interface**: A user-friendly and visually appealing graphical user interface that simplifies navigation and usage.
+- **Open Source**: Licensed under the GNU General Public License v2.0-only, DoorOS encourages community involvement in its development and improvement.
+- **Enterprise Edition**: While DoorOS is free for personal use, we offer a paid Enterprise Edition designed for businesses, featuring additional tools and support.
 
-## Project Structure
+## Getting Started
 
-The project is organized into the following directories:
+### Prerequisites
 
-```
-DoorOS/
-├── README.md
-├── LICENSE
-├── Makefile
-├── docs/                                   Contains documentation files such as DOCS.md and BUILD.md
-│   ├── DOCS.md
-│   └── BUILD.md
-├── boot/                                   Contains the boot.asm file that is the bootloader for the OS
-│   ├── boot.asm
-│   └── README.md
-├── kernel/                                 Contains the kernel.c and kernel.h files that define the core functions of the OS
-│   ├── kernel.c
-│   ├── kernel.h
-│   └── README.md
-├── drivers/                                Contains the keyboard.c, keyboard.h, screen.c, and screen.h files that implement the keyboard and screen drivers
-│   ├── keyboard.c
-│   ├── keyboard.h
-│   ├── screen.c
-│   ├── screen.h
-│   └── README.md
-├── gui/                                    Contains the gui.c, gui.h, window.c, and window.h files that implement the GUI and the window management system
-│   ├── gui.c
-│   ├── gui.h
-│   ├── window.c
-│   ├── window.h
-│   ├── assets/                             Contains the logo.png, font.ttf, and icons/ directory that store the graphical assets for the GUI
-│   │   ├── logo.png
-│   │   ├── font.ttf
-│   │   └── icons/
-│   │       ├── home.png
-│   │       ├── settings.png
-│   │       └── power.png
-│   │       └── README.md
-│   └── README.md
-└── apps/                                   Contains the calculator.c, calculator.h, editor.c, and editor.h files that implement the basic applications for the OS
-    ├── calculator.c
-    ├── calculator.h
-    ├── editor.c
-    ├── editor.h
-    └── README.md
-```
+To build DoorOS from source, you'll need:
 
-Each directory also has a README.md file that provides more details about its contents.
+- A C/C++ compiler (such as GCC)
+- GNU Make
+- Other dependencies (list them if applicable)
 
-## Build Instructions
+### Building DoorOS
 
-To build and run the OS, please refer to the [`BUILD.md`](./docs/BUILD.md) file.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/foxypiratecove37350/DoorOS.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd DoorOS
+    ```
+3. Build the OS:
+    ```bash
+    make
+    ```
+
+### Running DoorOS
+
+After building DoorOS, you can run it on an emulator like QEMU or install it on a physical machine. Detailed instructions for running or installing DoorOS can be found in the [Installation Guide](./INSTALL.md).
+
+## Contributing
+
+We welcome contributions from the community! If you're interested in contributing, please read our [Contributing Guidelines](./CONTRIBUTING.md) to get started.
 
 ## License
 
-This project is licensed under the GNU General Public License version 2. See the [`LICENSE`](./LICENSE) file for more information.
+This project is licensed under the GNU General Public License v2.0-only. See the [`LICENSE`](./LICENSE) file for more details.
+
+## Contact
+
+For any inquiries or support, feel free to reach out via GitHub Issues.
+
+---
+
+© 2024 DoorOS Open-source Project. All rights reserved.
+
