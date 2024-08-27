@@ -7,7 +7,7 @@ Welcome to the DoorOS Open-source project! DoorOS is a free and open-source grap
 - **32/64-bit Support**: Compatible with both 32-bit and 64-bit architectures, ensuring a wide range of device compatibility.
 - **GUI Interface**: A user-friendly and visually appealing graphical user interface that simplifies navigation and usage.
 - **Open Source**: Licensed under the GNU General Public License v2.0-only, DoorOS encourages community involvement in its development and improvement.
-- **Enterprise Edition**: While DoorOS is free for personal use, we offer a paid Enterprise Edition designed for businesses, featuring additional tools and support.
+- **Enterprise Edition**: While DoorOS is free for personal use, we offer a paid Enterprise Edition designed for businesses, featuring additional tools and support. See [DoorOS Entreprise](README-Entreprise.md) for more informations.
 
 ## Getting Started
 
