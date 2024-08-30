@@ -7,7 +7,7 @@ Welcome to the DoorOS Open-source project! DoorOS is a free and open-source grap
 - **32/64-bit Support**: Compatible with both 32-bit and 64-bit architectures, ensuring a wide range of device compatibility.
 - **GUI Interface**: A user-friendly and visually appealing graphical user interface that simplifies navigation and usage.
 - **Open Source**: Licensed under the GNU General Public License v2.0-only, DoorOS encourages community involvement in its development and improvement.
-- **Enterprise Edition**: While DoorOS is free for personal use, we offer a paid Enterprise Edition designed for businesses, featuring additional tools and support. See [DoorOS Entreprise](README-Entreprise.md) for more informations.
+- **Enterprise Edition**: While DoorOS is free for personal use, we offer a paid Enterprise Edition designed for businesses, featuring additional tools and support. See [DoorOS Enterprise](README-Enterprise.md) for more information.
 
 ## Getting Started
 
@@ -15,28 +15,39 @@ Welcome to the DoorOS Open-source project! DoorOS is a free and open-source grap
 
 To build DoorOS from source, you'll need:
 
-- A C/C++ compiler (such as GCC)
-- GNU Make
-- Other dependencies (list them if applicable)
+- Docker
 
 ### Building DoorOS
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/foxypiratecove37350/DoorOS.git
-    ```
+   ```bash
+   git clone https://github.com/DoorOS-Project/DoorOS.git
+   ```
 2. Navigate to the project directory:
-    ```bash
-    cd DoorOS
-    ```
-3. Build the OS:
-    ```bash
-    make
-    ```
+   ```bash
+   cd DoorOS
+   ```
+3. Install `os-build-utility`:
+   ```bash
+   wget https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-linux -O os-build-utility && chmod +x os-build-utility # *nix
+   curl -L https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-windows.exe -o os-build-utility.exe # Windows
+   ```
+4. Build the OS:
+   ```bash
+   ./os-build-utility --build # *nix
+   os-build-utility.exe --build # Windows
+   ```
 
 ### Running DoorOS
 
-After building DoorOS, you can run it on an emulator like QEMU or install it on a physical machine. Detailed instructions for running or installing DoorOS can be found in the [Installation Guide](./INSTALL.md).
+After building DoorOS, you can run it on an emulator like QEMU using this command:
+
+```bash
+./os-build-utility --run # *nix
+os-build-utility.exe --run # Windows
+```
+
+Or install it on a physical machine. Detailed instructions for running or installing DoorOS can be found in the [Installation Guide](./INSTALL.md).
 
 ## Contributing
 
