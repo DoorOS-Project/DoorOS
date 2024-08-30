@@ -30,23 +30,40 @@ Make the necessary changes in the codebase. Ensure your code adheres to the proj
 
 All source files should include the following header at the top. This helps maintain consistency across the project and provides essential information about each file.
 
-```c
-/******************************************************************************
- * DoorOS - A Free Open-source GUI Operating System
- * 
- * This file is part of the DoorOS Open-source project, a free alternative to 
- * Windows designed to cater to a wide range of users, including enterprises.
- * 
- * Author: foxypiratecove37350
- * License: GNU General Public License v2.0-only
- * 
- * (c) 2024 DoorOS Open-source Project
- * 
- * File Description:
- * [Provide a brief description of what this source file does]
- ******************************************************************************
- */
-```
+- C:
+  ```c
+  /******************************************************************************
+   * DoorOS - A Free Open-source GUI Operating System
+   * 
+   * This file is part of the DoorOS Open-source project, a free alternative to 
+   * Windows designed to cater to a wide range of users, including enterprises.
+   * 
+   * Author: DoorOS Project
+   * License: GNU General Public License v2.0-only
+   * 
+   * (c) 2024 DoorOS Open-source Project
+   * 
+   * File Description:
+   * [Provide a brief description of what this source file does]
+   *****************************************************************************/
+  ```
+- Assembly:
+  ```asm
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ; DoorOS - A Free Open-source GUI Operating System
+  ;
+  ; This file is part of the DoorOS Open-source project, a free alternative to
+  ; Windows designed to cater to a wide range of users, including enterprises.
+  ;
+  ; Author: DoorOS Project
+  ; License: GNU General Public License v2.0-only
+  ;
+  ; (c) 2024 DoorOS Open-source Project
+  ;
+  ; File Description:
+  ; [Provide a brief description of what this source file does]
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ```
 
 Replace `[Provide a brief description of what this source file does]` with a concise description of the file's purpose.
 
