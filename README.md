@@ -30,7 +30,8 @@ To build DoorOS from source, you'll need:
 3. Install `os-build-utility`:
    ```bash
    # *nix
-   wget https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-linux -O os-build-utility && chmod +x os-build-utility
+   wget https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-linux -O os-build-utility
+   chmod +x os-build-utility
    # Windows
    curl -L https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-windows.exe -o os-build-utility.exe
    ```
