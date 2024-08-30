@@ -29,13 +29,17 @@ To build DoorOS from source, you'll need:
    ```
 3. Install `os-build-utility`:
    ```bash
-   wget https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-linux -O os-build-utility && chmod +x os-build-utility # *nix
-   curl -L https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-windows.exe -o os-build-utility.exe # Windows
+   # *nix
+   wget https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-linux -O os-build-utility && chmod +x os-build-utility
+   # Windows
+   curl -L https://github.com/DoorOS-Project/os-build-utility/releases/latest/download/os-build-utility-windows.exe -o os-build-utility.exe
    ```
 4. Build the OS:
    ```bash
-   ./os-build-utility --build # *nix
-   os-build-utility.exe --build # Windows
+   # *nix
+   ./os-build-utility --build
+   # Windows
+   os-build-utility.exe --build
    ```
 
 ### Running DoorOS
@@ -43,8 +47,10 @@ To build DoorOS from source, you'll need:
 After building DoorOS, you can run it on an emulator like QEMU using this command:
 
 ```bash
-./os-build-utility --run # *nix
-os-build-utility.exe --run # Windows
+# *nix
+./os-build-utility --run
+# Windows
+os-build-utility.exe --run
 ```
 
 Or install it on a physical machine. Detailed instructions for running or installing DoorOS can be found in the [Installation Guide](./INSTALL.md).
