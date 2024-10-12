@@ -38,7 +38,7 @@ check_multiboot:
 	jne .no_multiboot
 	ret
 .no_multiboot:
-	mov al, "M"
+	mov esi, error_message_multiboot
 	jmp error
 
 check_cpuid:
@@ -56,7 +56,7 @@ check_cpuid:
 	je .no_cpuid
 	ret
 .no_cpuid:
-	mov al, "C"
+	mov esi, error_message_cpuid
 	jmp error
 
 check_long_mode:
@@ -71,7 +71,7 @@ check_long_mode:
 	jz .no_long_mode
 	ret
 .no_long_mode:
-	mov al, "L"
+	mov esi, error_message_long_mode
 	jmp error
 
 setup_page_tables:
@@ -121,12 +121,26 @@ enable_paging:
 	ret
 
 error:
-	; Print "ERR: X", where X is the error code in the `al` register.
-	mov dword [0xb8000], 0x4f524f45
-	mov dword [0xb8004], 0x4f3a4f52
-	mov dword [0xb8008], 0x4f204f20
-	mov byte  [0xb800a], al
-	hlt
+	; Display the error message in `esi` from `error_messages`.
+	mov dword [0xb80a0], 0x4f724f45
+	mov dword [0xb80a4], 0x4f6f4f72
+	mov dword [0xb80a8], 0x4f3a4f72
+	mov word [0xb80ac], 0x4f20
+
+	xor ecx, ecx
+	.loop:
+		mov al, [esi + ecx]
+
+		cmp al, 0
+		je .done
+
+		mov ah, 0x4f
+		inc ecx
+		mov word [0xb80ac + ecx * 2], ax
+
+		jmp .loop
+	.done:
+		hlt
 
 section .bss
 
@@ -143,6 +157,10 @@ stack_bottom:
 stack_top:
 
 section .rodata
+error_message_multiboot db 'MultiBoot2 Error.', 0
+error_message_cpuid  db 'CPUID unavailable.', 0
+error_message_long_mode db 'Long Mode unavailable. Try the 32-bits ISO.', 0
+
 gdt64:
 	dq 0 ; Zero entry
 	.code_segment: equ $ - gdt64
